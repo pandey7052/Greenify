@@ -13,6 +13,20 @@ def loadData(path):
     return pd.read_csv(path)
 
 
+def cleanData(df):
+    df = df.drop(['urbanUtilityScalePV_GW', 'urbanUtilityScalePV_km2', 'ruralUtilityScalePV_GW',
+                  'ruralUtilityScalePV_km2', 'rooftopPV_GW', 'CSP_GW', 'CSP_km2', 'onshoreWind_GW',
+                  'onshoreWind_km2', 'offshoreWind_GW', 'offshoreWind_km2', 'biopowerSolid_GW',
+                  'biopowerSolid_BDT', 'biopowerGaseous_GW', 'geothermalHydrothermal_GW', 'EGSGeothermal_GW',
+                  'hydropower_GW'], axis=1)
+    return df.rename({'Unnamed: 0': 'State', 'urbanUtilityScalePV_GWh': 'Urban Utility',
+                      'ruralUtilityScalePV_GWh': 'Rural Utility', 'rooftopPV_GWh': 'Solar Photovoltic',
+                      'CSP_GWh': 'Solar Thermal', 'onshoreWind_GWh': 'Onshore Wind', 'offshoreWind_GWh': 'Offshore Wind',
+                      'biopowerSolid_GWh': 'Bio-Solid', 'biopowerGaseous_GWh': 'Bio-gas', 'biopowerGaseous_Tonnes-CH4': 'Bio-CH4',
+                      'geothermalHydrothermal_GWh': 'Hydrothermal', 'EGSGeothermal_GWh': 'Enhanced Geothermal',
+                      'hydropower_GWh': 'Hydropower', 'hydropower_countOfSites': 'Hydropower Sites Count'}, axis=1)
+
+
 def overview():
 
     # st.image('climate.jpeg')
@@ -97,6 +111,21 @@ def viewDataset():
             cols[1].markdown(f"# {dataframe[col].unique().size}")
             cols[2].markdown('#### Type :')
             cols[3].markdown(f"## {t}")
+
+
+def sourceTypeAnalysis():
+    st.markdown('''
+        ## Energy Source Type Analysis
+        ---
+    ''')
+
+    st.markdown('#')
+    st.subheader('Solar Photovoltic')
+    st.plotly_chart()
+
+
+def analyseType():
+    return
 
 
 sidebar.header('Choose Your Option')
