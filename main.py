@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+from visualizer import getResourceByType
+
 sidebar = st.sidebar
 st.title('Greenify')
 st.subheader('Analysis of World Energy & Electricity Resources')
@@ -8,7 +10,7 @@ st.subheader('Analysis of World Energy & Electricity Resources')
 # load data here
 
 
-@st.cache(suppress_st_warning=True)
+# @st.cache(suppress_st_warning=True)
 def loadData(path):
     return pd.read_csv(path)
 
@@ -25,6 +27,11 @@ def cleanData(df):
                       'biopowerSolid_GWh': 'Bio-Solid', 'biopowerGaseous_GWh': 'Bio-gas', 'biopowerGaseous_Tonnes-CH4': 'Bio-CH4',
                       'geothermalHydrothermal_GWh': 'Hydrothermal', 'EGSGeothermal_GWh': 'Enhanced Geothermal',
                       'hydropower_GWh': 'Hydropower', 'hydropower_countOfSites': 'Hydropower Sites Count'}, axis=1)
+
+
+df = loadData('datasets/usretechnicalpotential.csv')
+df = cleanData(df)
+st.dataframe(df)
 
 
 def overview():
@@ -121,7 +128,28 @@ def sourceTypeAnalysis():
 
     st.markdown('#')
     st.subheader('Solar Photovoltic')
-    st.plotly_chart()
+    st.plotly_chart(getResourceByType(
+        df, 'Urban Utility'), full_column_width=True)
+
+    st.markdown('#')
+    st.subheader('Solar Thermal')
+    st.plotly_chart(getResourceByType(
+        df, 'Solar Thermal'), full_column_width=True)
+
+    st.markdown('#')
+    st.subheader('Onshore Wind')
+    st.plotly_chart(getResourceByType(
+        df, 'Onshore Wind'), full_column_width=True)
+
+    st.markdown('#')
+    st.subheader('Offshore Wind')
+    st.plotly_chart(getResourceByType(
+        df, 'Offshore Wind'), full_column_width=True)
+
+    st.markdown('#')
+    st.subheader('Bio-Solid')
+    st.plotly_chart(getResourceByType(
+        df, 'Bio-Solid'), full_column_width=True)
 
 
 def analyseType():
@@ -138,6 +166,8 @@ if choice == options[0]:
     overview()
 elif choice == options[1]:
     viewDataset()
+elif choice == options[4]:
+    sourceTypeAnalysis()
 # elif choice == options[2]:
 #     analyseTemperature()
 # elif choice == options[3]:
@@ -146,6 +176,5 @@ elif choice == options[1]:
 #     analyseDisasters()
 # elif choice == options[5]:
 #     analyseSeaLevel()
-
 # elif choice == options[6]:
 #     ViewReport()
