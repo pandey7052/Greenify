@@ -35,22 +35,20 @@ st.dataframe(df)
 
 
 def overview():
-
+    st.image('imh.jpg')
     # st.image('climate.jpeg')
 
-    st.markdown('''### Global warming is the increase of average world temperatures as a result of what is known as the greenhouse effect.
-    As the greenhouse gases build up in the atmosphere the Earth gets hotter.
-    This process is leading to a rapid change in climate, also known as climate change.
+    st.markdown('''### Energy is an important ingredient in all phases of society. We live in a very interdependent world, and access to adequate and reliable energy resources is crucial for economic growth and for maintaining the quality of our lives. But current levels of energy consumption and production are not sustainable.
     ''')
     st.header('Project Introduction')
-    st.markdown('''### In this project we have been to create models of how changes caused by heating should work their way through the entire system and appear in different areas, for example, Sea Level, Flood,Extreme Weather,Volcanic Activity etc .
+    st.markdown('''### 	This project titled “Analysis of World Energy and Electricity Resources” focuses on the data obtained about energy resources utilized, energy and electricity wastage globally. 
     ''')
-    st.image('global_warming.jpg')
+    
     st.header('Objective')
-    st.subheader(' Earth Observation :')
+    st.subheader(' Climate Change  :')
     st.markdown(''' Understanding and Predicting the global atmospheric and climate change .
     ''')
-    st.subheader(' Climate Impact :')
+    st.subheader(' Global Warming:')
     st.markdown('''   To increase the understanding of the atmosphere/ecosystem exchange of greenhouse gasses .
     ''')
     st.subheader('Temperature Analysis :')
