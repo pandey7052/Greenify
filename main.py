@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-from visualizer import getResourceByType
+from visualizer import getResourceByType, getResourceByLocation
 
 sidebar = st.sidebar
 st.title('Greenify')
@@ -35,7 +35,7 @@ st.dataframe(df)
 
 
 def overview():
-    st.image('imh.jpg')
+    # st.image('imh.jpg')
     # st.image('climate.jpeg')
 
     st.markdown('''### Energy is an important ingredient in all phases of society. We live in a very interdependent world, and access to adequate and reliable energy resources is crucial for economic growth and for maintaining the quality of our lives. But current levels of energy consumption and production are not sustainable.
@@ -43,7 +43,7 @@ def overview():
     st.header('Project Introduction')
     st.markdown('''### 	This project titled “Analysis of World Energy and Electricity Resources” focuses on the data obtained about energy resources utilized, energy and electricity wastage globally. 
     ''')
-    
+
     st.header('Objective')
     st.subheader(' Climate Change  :')
     st.markdown(''' Understanding and Predicting the global atmospheric and climate change .
@@ -88,13 +88,13 @@ def save_report_form(fig):
 
 def viewDataset():
     st.header('Data Used in Project')
-    dataframe = analysis.getDataframe()
+    dataframe = df
 
     with st.spinner("Loading Data..."):
         st.dataframe(dataframe)
 
         st.markdown('---')
-        cols = st.beta_columns(4)
+        cols = st.columns(4)
         cols[0].markdown("### No. of Rows :")
         cols[1].markdown(f"# {dataframe.shape[0]}")
         cols[2].markdown("### No. of Columns :")
@@ -111,7 +111,7 @@ def viewDataset():
         st.header('Dataset Columns')
         for col, t in zip(dataframe.columns, types):
             st.markdown(f"### {col}")
-            cols = st.beta_columns(4)
+            cols = st.columns(4)
             cols[0].markdown('#### Unique Values :')
             cols[1].markdown(f"# {dataframe[col].unique().size}")
             cols[2].markdown('#### Type :')
@@ -150,8 +150,28 @@ def sourceTypeAnalysis():
         df, 'Bio-Solid'), full_column_width=True)
 
 
-def analyseType():
-    return
+def locationAnalysis():
+    st.markdown('''
+        ## Energy Source Location Analysis
+        ---
+    ''')
+
+    st.markdown('#')
+    st.subheader('Solar Photovoltic')
+    st.plotly_chart(getResourceByLocation(
+        df, y_col='Bio-Solid'), use_container_width=True)
+    st.markdown('#')
+    st.subheader('Bio Gas')
+    st.plotly_chart(getResourceByLocation(
+        df, y_col='Bio-gas'), use_container_width=True)
+    st.markdown('#')
+    st.subheader('Hydro Power')
+    st.plotly_chart(getResourceByLocation(
+        df, y_col='Hydropower'), use_container_width=True)
+    st.markdown('#')
+    st.subheader('Hydropower Sites Count')
+    st.plotly_chart(getResourceByLocation(
+        df, y_col='Hydropower Sites Count'), use_container_width=True)
 
 
 sidebar.header('Choose Your Option')
@@ -164,6 +184,8 @@ if choice == options[0]:
     overview()
 elif choice == options[1]:
     viewDataset()
+elif choice == options[3]:
+    locationAnalysis()
 elif choice == options[4]:
     sourceTypeAnalysis()
 # elif choice == options[2]:
