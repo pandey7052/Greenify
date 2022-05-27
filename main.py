@@ -72,9 +72,10 @@ def overview():
     st.markdown(
         '''  Specific analysis of the impact of selected climatic scenarios on Exchange of temperature . ''')
     st.header('Conclusion')
-    st.markdown(''' ### The project will contribute to an improved understanding of the processes, and also use the knowledge gained to make an estimate of the contribution from the natural ecosystems to the emissions of greenhouse gasses .
+    st.markdown(''' This project sends a valuable message backed by Science and its tools to keep our resources in check and direct a sustainable usage.
+
     ''')
-    st.markdown(''' ### Human-induced climate change has contributed to changing patterns of extreme weather across the globe, from longer and hotter heat waves to heavier rains. Extreme weather is on the rise, and the indications are that it will continue to increase, in both predictable and unpredictable ways.
+    st.markdown(''' Energy is a valuable resource which should be used efficiently and never be wasted.
     ''')
 
 
