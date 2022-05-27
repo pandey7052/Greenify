@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
+# import json
+# import geopandas as gpd
 
-from visualizer import getResourceByType, getResourceByLocation
+from visualizer import getResourceByType, getResourceByLocation, getLocationData
 
 sidebar = st.sidebar
 st.title('Greenify')
@@ -165,6 +167,12 @@ def sourceTypeAnalysis():
 
 
 def locationAnalysis():
+    st.header('Location Analysis')
+    st.markdown('---')
+    st.plotly_chart(getLocationData(df=df, state='Alabama', title=""))
+
+
+def locationAnalysis2():
     st.markdown('''
         ## Energy Source Location Analysis
         ---
@@ -188,9 +196,17 @@ def locationAnalysis():
         df, y_col='Hydropower Sites Count'), use_container_width=True)
 
 
+def carbonAnalysis():
+    st.header('Footpint Analysis')
+
+
+def categoryAnalysis():
+    st.header('Category Analysis')
+
+
 sidebar.header('Choose Your Option')
-options = ['Project Overview', 'Dataset Details', 'Timeline Analysis', 'Location Analysis',
-           'Source Category Analysis', 'Consumption Analysis', 'Impact Analysis', 'Carbon Footprint Analysis',
+options = ['Project Overview', 'Dataset Details', 'Location Analysis',
+           'Source Category Analysis', 'Category Analysis', 'Impact Analysis', 'Carbon Footprint Analysis',
            'Demand and Supply Gap Analysis']
 choice = sidebar.selectbox(options=options, label="Choose Action")
 
@@ -198,9 +214,15 @@ if choice == options[0]:
     overview()
 elif choice == options[1]:
     viewDataset()
-elif choice == options[3]:
+elif choice == options[2]:
     locationAnalysis()
+elif choice == options[3]:
+    sourceTypeAnalysis()
 elif choice == options[4]:
+    categoryAnalysis()
+elif choice == options[5]:
+    sourceTypeAnalysis()
+elif choice == options[6]:
     sourceTypeAnalysis()
 # elif choice == options[2]:
 #     analyseTemperature()
