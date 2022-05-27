@@ -5,6 +5,7 @@ from visualizer import getResourceByType, getResourceByLocation
 
 sidebar = st.sidebar
 st.title('Greenify')
+st.image('greenify.jpg.png')
 st.subheader('Analysis of World Energy & Electricity Resources')
 
 # load data here
@@ -44,18 +45,18 @@ def overview():
     st.markdown('''### 	This project titled “Analysis of World Energy and Electricity Resources” focuses on the data obtained about energy resources utilized, energy and electricity wastage globally. 
     ''')
 
-    st.header('Objective')
-    st.subheader(' To deal with the following situations :')
-    st.subheader(' Climate Change  :')
-    st.image('climate-change2.jpg')
-    st.markdown(''' Understanding and Predicting the global atmospheric and climate change .
-    ''')
-    st.subheader(' Global Warming :')
-    st.image('CG.jpg')
-    st.markdown('''   To increase the understanding of the atmosphere/ecosystem exchange of greenhouse gasses .
-    ''')
-    st.subheader('Temperature Analysis :')
-    st.image('temperatureanalysis.jpg')
+    ##st.header('Objective')
+    ##st.subheader(' To deal with the following situations :')
+    ##st.subheader(' Climate Change  :')
+    ##st.image('climate-change2.jpg')
+    ##st.markdown(''' Understanding and Predicting the global atmospheric and climate change .
+    ##''')
+    ##st.subheader(' Global Warming :')
+    ##st.image('CG.jpg')
+    ##st.markdown('''   To increase the understanding of the atmosphere/ecosystem exchange of greenhouse gasses .
+    ##''')
+    ##st.subheader('Temperature Analysis :')
+    ##st.image('temperatureanalysis.jpg')
     ##st.subheader('Determine the Energy Usage :')
     st.header('Purpose And Scope :-')
     st.subheader(' Analyze the Data :')
