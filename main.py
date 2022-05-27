@@ -47,16 +47,27 @@ def overview():
     st.header('Objective')
     st.subheader(' To deal with the following situations :')
     st.subheader(' Climate Change  :')
-    st.image('CG.jpg')
+    st.image('climate-change2.jpg')
     st.markdown(''' Understanding and Predicting the global atmospheric and climate change .
     ''')
     st.subheader(' Global Warming :')
-    ##st.image('imgres.jpg')
     st.image('CG.jpg')
     st.markdown('''   To increase the understanding of the atmosphere/ecosystem exchange of greenhouse gasses .
     ''')
     st.subheader('Temperature Analysis :')
-    st.image('GW.jpg')
+    st.image('temperatureanalysis.jpg')
+    ##st.subheader('Determine the Energy Usage :')
+    st.header('Purpose And Scope :-')
+    st.subheader(' Analyze the Data :')
+    st.image('cg2.jpg')
+    st.subheader(' Determine the Energy Usage:')
+    st.image('cg1.jpg')
+    st.subheader(' Reduction of Energy Waste :')
+    st.image('Reduction of Energy Waste.jpg')
+    st.subheader(' Increase dependency on Renewable Sources :')
+    st.image('Renewal-energy.jpg')
+
+
     st.markdown(
         '''  Specific analysis of the impact of selected climatic scenarios on Exchange of temperature . ''')
     st.header('Conclusion')
