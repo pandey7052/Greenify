@@ -7,6 +7,7 @@ from visualizer import getResourceByType, getResourceByLocation, getLocationData
 
 sidebar = st.sidebar
 st.title('Greenify')
+st.image('greenify.jpg.png')
 st.subheader('Analysis of World Energy & Electricity Resources')
 
 # load data here
@@ -46,17 +47,18 @@ def overview():
     st.markdown('''### 	This project titled “Analysis of World Energy and Electricity Resources” focuses on the data obtained about energy resources utilized, energy and electricity wastage globally. 
     ''')
 
-    st.header('Objective')
-    st.subheader(' Climate Change  :')
-    st.image('climate-change2.jpg')
-    st.markdown(''' Understanding and Predicting the global atmospheric and climate change .
-    ''')
-    st.subheader(' Global Warming :')
-    st.image('CG.jpg')
-    st.markdown('''   To increase the understanding of the atmosphere/ecosystem exchange of greenhouse gasses .
-    ''')
-    st.subheader('Temperature Analysis :')
-    st.image('temperatureanalysis.jpg')
+    # st.header('Objective')
+    ##st.subheader(' To deal with the following situations :')
+    ##st.subheader(' Climate Change  :')
+    # st.image('climate-change2.jpg')
+    # st.markdown(''' Understanding and Predicting the global atmospheric and climate change .
+    # ''')
+    ##st.subheader(' Global Warming :')
+    # st.image('CG.jpg')
+    # st.markdown('''   To increase the understanding of the atmosphere/ecosystem exchange of greenhouse gasses .
+    # ''')
+    ##st.subheader('Temperature Analysis :')
+    # st.image('temperatureanalysis.jpg')
     ##st.subheader('Determine the Energy Usage :')
     st.header('Purpose And Scope :-')
     st.subheader(' Analyze the Data :')
@@ -71,9 +73,10 @@ def overview():
     st.markdown(
         '''  Specific analysis of the impact of selected climatic scenarios on Exchange of temperature . ''')
     st.header('Conclusion')
-    st.markdown(''' ### The project will contribute to an improved understanding of the processes, and also use the knowledge gained to make an estimate of the contribution from the natural ecosystems to the emissions of greenhouse gasses .
+    st.markdown(''' This project sends a valuable message backed by Science and its tools to keep our resources in check and direct a sustainable usage.
+
     ''')
-    st.markdown(''' ### Human-induced climate change has contributed to changing patterns of extreme weather across the globe, from longer and hotter heat waves to heavier rains. Extreme weather is on the rise, and the indications are that it will continue to increase, in both predictable and unpredictable ways.
+    st.markdown(''' Energy is a valuable resource which should be used efficiently and never be wasted.
     ''')
 
 
