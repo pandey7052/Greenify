@@ -62,7 +62,7 @@ def overview():
     ##st.subheader('Determine the Energy Usage :')
     st.header('Purpose And Scope :-')
     st.subheader(' Analyze the Data :')
-    st.image('cg2.jpg')
+    # st.image('cg2.jpg')
     st.subheader(' Determine the Energy Usage:')
     st.image('cg1.jpg')
     st.subheader(' Reduction of Energy Waste :')
