@@ -10,8 +10,6 @@ st.title('Greenify')
 st.image('greenify.jpg.png')
 st.subheader('Analysis of World Energy & Electricity Resources')
 
-# load data here
-
 
 # @st.cache(suppress_st_warning=True)
 def loadData(path):
@@ -34,7 +32,7 @@ def cleanData(df):
 
 df = loadData('datasets/usretechnicalpotential.csv')
 df = cleanData(df)
-st.dataframe(df)
+# st.dataframe(df)
 
 
 def overview():
@@ -62,12 +60,17 @@ def overview():
     ##st.subheader('Determine the Energy Usage :')
     st.header('Purpose And Scope :-')
     st.subheader(' Analyze the Data :')
-    # st.image('cg2.jpg')
-    st.subheader(' Determine the Energy Usage:')
-    st.image('cg1.jpg')
-    st.subheader(' Reduction of Energy Waste :')
-    st.image('Reduction of Energy Waste.jpg')
-    st.subheader(' Increase dependency on Renewable Sources :')
+    c1, c2 = st.columns(2)
+    # c1.image('cg2.jpg')
+    c2.subheader(' Determine the Energy Usage:')
+
+    c1, c2 = st.columns(2)
+    c1.image('cg1.jpg')
+    c2.subheader(' Reduction of Energy Waste :')
+    st.markdown('#')
+    c1, c2 = st.columns(2)
+    c1.image('Reduction of Energy Waste.jpg')
+    c2.subheader(' Increase dependency on Renewable Sources :')
     st.image('Renewal-energy.jpg')
 
     st.markdown(
@@ -146,7 +149,7 @@ def sourceTypeAnalysis():
     st.markdown('#')
     st.subheader('Solar Photovoltic')
     st.plotly_chart(getResourceByType(
-        df, 'Urban Utility'), full_column_width=True)
+        df, 'Urban Utility'), use_container_width=True)
 
     st.markdown('#')
     st.subheader('Solar Thermal')
@@ -172,7 +175,19 @@ def sourceTypeAnalysis():
 def locationAnalysis():
     st.header('Location Analysis')
     st.markdown('---')
-    st.plotly_chart(getLocationData(df=df, state='Alabama', title=""))
+    states = df.State.unique()
+    selState = st.selectbox('Select State', states)
+    colSet = [
+        ['Solar Photovoltic', 'Solar Thermal'],
+        ['Onshore Wind', 'Offshore Wind'],
+        ['Bio-Solid', 'Bio-gas', 'Bio-CH4'],
+        ['Urban Utility', 'Rural Utility'],
+    ]
+    for col in colSet:
+        st.subheader(f'Energy Sources from {selState}')
+        st.plotly_chart(getLocationData(df=df, state=selState, cols=col,
+                        title=""), use_container_width=True)
+        st.markdown('#')
 
 
 def locationAnalysis2():
@@ -208,9 +223,8 @@ def categoryAnalysis():
 
 
 sidebar.header('Choose Your Option')
-options = ['Project Overview', 'Dataset Details', 'Location Analysis',
-           'Source Category Analysis', 'Category Analysis', 'Impact Analysis', 'Carbon Footprint Analysis',
-           'Demand and Supply Gap Analysis']
+options = ['Project Overview', 'Dataset Details', 'Location Analysis', 'Type Analysis',
+           'Source Category Analysis']
 choice = sidebar.selectbox(options=options, label="Choose Action")
 
 if choice == options[0]:
