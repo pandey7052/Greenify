@@ -15,7 +15,7 @@ def getResourceByLocation(df, count=20, y_col='Bio-Solid'):
                   labels={'x': 'State', 'y': 'Energy'})
 
 
-def getLocationData(df, state, title=""):
-    data = df[df['State'] == state][df.columns[3:]].T
+def getLocationData(df, state, cols, title=""):
+    data = df[df['State'] == state][cols].T
     fig = go.Figure()
     return fig.add_trace(go.Bar(x=data.index, y=data.values.flatten()))
