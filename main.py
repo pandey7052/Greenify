@@ -6,7 +6,7 @@ import pandas as pd
 from visualizer import getResourceByType, getResourceByLocation, getLocationData
 
 sidebar = st.sidebar
-st.title('Greenify')
+st.title('GREENIFY')
 st.image('greenify.jpg.png')
 st.subheader('Analysis of World Energy & Electricity Resources')
 
