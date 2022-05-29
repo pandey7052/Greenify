@@ -59,23 +59,30 @@ def overview():
     # st.image('temperatureanalysis.jpg')
     ##st.subheader('Determine the Energy Usage :')
     st.header('Purpose And Scope :-')
-    st.subheader(' Analyze the Data :')
+   
     c1, c2 = st.columns(2)
-    # c1.image('cg2.jpg')
-    c2.subheader(' Determine the Energy Usage:')
+    c2.subheader(' Analyze the Data :')
+    st.markdown('#')
+    c1.image('cg2.jpg')
 
     c1, c2 = st.columns(2)
+    c2.subheader(' Determine the Energy Usage:')
+    st.markdown('#')
     c1.image('cg1.jpg')
+
+    c1, c2 = st.columns(2)
     c2.subheader(' Reduction of Energy Waste :')
     st.markdown('#')
-    c1, c2 = st.columns(2)
     c1.image('Reduction of Energy Waste.jpg')
-    c2.subheader(' Increase dependency on Renewable Sources :')
-    st.image('Renewal-energy.jpg')
 
-    st.markdown(
-        '''  Specific analysis of the impact of selected climatic scenarios on Exchange of temperature . ''')
-    st.header('Conclusion')
+    c1, c2 = st.columns(2)
+    c2.subheader(' Increase dependency on Renewable Sources :')
+    st.markdown('#')
+    c1.image('Renewal-energy.jpg')
+
+    #st.markdown(
+       # '''  Specific analysis of the impact of selected climatic scenarios on Exchange of temperature . ''')
+    st.header('Conclusion :-')
     st.markdown(''' This project sends a valuable message backed by Science and its tools to keep our resources in check and direct a sustainable usage.
 
     ''')
@@ -154,12 +161,12 @@ def sourceTypeAnalysis():
     st.markdown('#')
     st.subheader('Solar Thermal')
     st.plotly_chart(getResourceByType(
-        df, 'Solar Thermal'), full_column_width=True)
+        df, 'Solar Thermal'), use_container_width=True)
 
     st.markdown('#')
     st.subheader('Onshore Wind')
     st.plotly_chart(getResourceByType(
-        df, 'Onshore Wind'), full_column_width=True)
+        df, 'Onshore Wind'), use_container_width=True)
 
     st.markdown('#')
     st.subheader('Offshore Wind')
