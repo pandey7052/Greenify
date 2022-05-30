@@ -232,17 +232,17 @@ def categoryAnalysis():
     st.header('Category Analysis')
 
     st.markdown('#')
-    st.subheader('Hydropower Sites Count')
+    st.subheader('Number Of Large Skale Power Plant')
     st.plotly_chart(getCountryNum(df2), use_container_width=True)
 
     st.markdown('#')
-    st.subheader('Hydropower Sites Count')
+    st.subheader('Energy Generation Power Plant')
     st.plotly_chart(getCountryValue(df2), use_container_width=True)
 
 
 sidebar.header('Choose Your Option')
 options = ['Project Overview', 'Dataset Details',
-           'Location and Category Analysis', 'Type Analysis', 'Category Analysis']
+           'Location and Category Analysis', 'Type Analysis', 'Country Wise Analysis']
 choice = sidebar.selectbox(options=options, label="Choose Action")
 
 if choice == options[0]:
