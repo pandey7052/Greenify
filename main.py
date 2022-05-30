@@ -216,7 +216,7 @@ def categoryAnalysis():
     st.header('Category Analysis')
 
     st.markdown('#')
-    st.subheader('Number Of Large Skale Power Plant')
+    st.subheader('Number Of Large Scale Power Plant')
     st.plotly_chart(getCountryNum(df2), use_container_width=True)
 
     st.markdown('#')
