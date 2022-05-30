@@ -171,12 +171,12 @@ def sourceTypeAnalysis():
     st.markdown('#')
     st.subheader('Offshore Wind')
     st.plotly_chart(getResourceByType(
-        df, 'Offshore Wind'), full_column_width=True)
+        df, 'Offshore Wind'), use_container_width=True)
 
     st.markdown('#')
     st.subheader('Bio-Solid')
     st.plotly_chart(getResourceByType(
-        df, 'Bio-Solid'), full_column_width=True)
+        df, 'Bio-Solid'), use_container_width=True)
 
 
 def locationAnalysis():
@@ -230,8 +230,7 @@ def categoryAnalysis():
 
 
 sidebar.header('Choose Your Option')
-options = ['Project Overview', 'Dataset Details', 'Location Analysis', 'Type Analysis',
-           'Source Category Analysis']
+options = ['Project Overview', 'Dataset Details', 'Location Analysis', 'Type Analysis']
 choice = sidebar.selectbox(options=options, label="Choose Action")
 
 if choice == options[0]:
