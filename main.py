@@ -3,7 +3,7 @@ import pandas as pd
 # import json
 # import geopandas as gpd
 
-from visualizer import getResourceByType, getResourceByLocation, getLocationData
+from visualizer import getResourceByType, getResourceByLocation, getLocationData, getCountryNum, getCountryValue
 
 sidebar = st.sidebar
 st.title('Greenify')
@@ -14,6 +14,9 @@ st.subheader('Analysis of World Energy & Electricity Resources')
 # @st.cache(suppress_st_warning=True)
 def loadData(path):
     return pd.read_csv(path)
+
+
+df2 = pd.read_excel('datasets/country.xlsx')
 
 
 def cleanData(df):
@@ -220,6 +223,14 @@ def carbonAnalysis():
 
 def categoryAnalysis():
     st.header('Category Analysis')
+
+    st.markdown('#')
+    st.subheader('Hydropower Sites Count')
+    st.plotly_chart(getCountryNum(df2), use_container_width=True)
+
+    st.markdown('#')
+    st.subheader('Hydropower Sites Count')
+    st.plotly_chart(getCountryValue(df2), use_container_width=True)
 
 
 sidebar.header('Choose Your Option')

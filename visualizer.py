@@ -19,3 +19,15 @@ def getLocationData(df, state, cols, title=""):
     data = df[df['State'] == state][cols].T
     fig = go.Figure()
     return fig.add_trace(go.Bar(x=data.index, y=data.values.flatten()))
+
+
+def getCountryNum(df):
+    data = df.groupby('location').count()
+    fig = go.Figure()
+    return fig.add_trace(go.Bar(x=data.index, y=data['type'].values.flatten()))
+
+
+def getCountryValue(df):
+    data = df['Daily MWh ']
+    fig = go.Figure()
+    return fig.add_trace(go.Bar(x=df.location, y=data.values.flatten()))
