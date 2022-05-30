@@ -230,7 +230,7 @@ def categoryAnalysis():
 
 
 sidebar.header('Choose Your Option')
-options = ['Project Overview', 'Dataset Details', 'Location Analysis', 'Type Analysis']
+options = ['Project Overview', 'Dataset Details', 'Location and category Analysis', 'Type Analysis']
 choice = sidebar.selectbox(options=options, label="Choose Action")
 
 if choice == options[0]:
