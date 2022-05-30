@@ -62,7 +62,7 @@ def overview():
     # st.image('temperatureanalysis.jpg')
     ##st.subheader('Determine the Energy Usage :')
     st.header('Purpose And Scope :-')
-   
+
     c1, c2 = st.columns(2)
     c2.subheader(' Analyze the Data :')
     st.markdown('#')
@@ -83,8 +83,8 @@ def overview():
     st.markdown('#')
     c1.image('Renewal-energy.jpg')
 
-    #st.markdown(
-       # '''  Specific analysis of the impact of selected climatic scenarios on Exchange of temperature . ''')
+    # st.markdown(
+    # '''  Specific analysis of the impact of selected climatic scenarios on Exchange of temperature . ''')
     st.header('Conclusion :-')
     st.markdown(''' This project sends a valuable message backed by Science and its tools to keep our resources in check and direct a sustainable usage.
 
@@ -241,7 +241,8 @@ def categoryAnalysis():
 
 
 sidebar.header('Choose Your Option')
-options = ['Project Overview', 'Dataset Details', 'Location and Category Analysis', 'Type Analysis']
+options = ['Project Overview', 'Dataset Details',
+           'Location and Category Analysis', 'Type Analysis', 'Category Analysis']
 choice = sidebar.selectbox(options=options, label="Choose Action")
 
 if choice == options[0]:
