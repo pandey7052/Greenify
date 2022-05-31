@@ -39,28 +39,13 @@ df = cleanData(df)
 
 
 def overview():
-    # st.image('imh.jpg')
-    # st.image('climate.jpeg')
-
+    
     st.markdown('''### Energy is an important ingredient in all phases of society. We live in a very interdependent world, and access to adequate and reliable energy resources is crucial for economic growth and for maintaining the quality of our lives. But current levels of energy consumption and production are not sustainable.
     ''')
     st.header('Project Introduction')
     st.markdown('''### 	This project titled “Analysis of World Energy and Electricity Resources” focuses on the data obtained about energy resources utilized, energy and electricity wastage globally. 
     ''')
 
-    # st.header('Objective')
-    ##st.subheader(' To deal with the following situations :')
-    ##st.subheader(' Climate Change  :')
-    # st.image('climate-change2.jpg')
-    # st.markdown(''' Understanding and Predicting the global atmospheric and climate change .
-    # ''')
-    ##st.subheader(' Global Warming :')
-    # st.image('CG.jpg')
-    # st.markdown('''   To increase the understanding of the atmosphere/ecosystem exchange of greenhouse gasses .
-    # ''')
-    ##st.subheader('Temperature Analysis :')
-    # st.image('temperatureanalysis.jpg')
-    ##st.subheader('Determine the Energy Usage :')
     st.header('Purpose And Scope :-')
 
     c1, c2 = st.columns(2)
@@ -83,8 +68,7 @@ def overview():
     st.markdown('#')
     c1.image('Renewal-energy.jpg')
 
-    # st.markdown(
-    # '''  Specific analysis of the impact of selected climatic scenarios on Exchange of temperature . ''')
+    
     st.header('Conclusion :-')
     st.markdown(''' This project sends a valuable message backed by Science and its tools to keep our resources in check and direct a sustainable usage.
 
@@ -232,7 +216,7 @@ def categoryAnalysis():
     st.header('Category Analysis')
 
     st.markdown('#')
-    st.subheader('Number Of Large Skale Power Plant')
+    st.subheader('Number Of Large Scale Power Plant')
     st.plotly_chart(getCountryNum(df2), use_container_width=True)
 
     st.markdown('#')
@@ -259,13 +243,4 @@ elif choice == options[5]:
     sourceTypeAnalysis()
 elif choice == options[6]:
     sourceTypeAnalysis()
-# elif choice == options[2]:
-#     analyseTemperature()
-# elif choice == options[3]:
-#     analyseFloods()
-# elif choice == options[4]:
-#     analyseDisasters()
-# elif choice == options[5]:
-#     analyseSeaLevel()
-# elif choice == options[6]:
-#     ViewReport()
+
