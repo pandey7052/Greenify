@@ -31,3 +31,40 @@ def getCountryValue(df):
     data = df['Daily MWh ']
     fig = go.Figure()
     return fig.add_trace(go.Bar(x=df.location, y=data.values.flatten()))
+
+
+def getCountryType(df):
+    data = df.groupby('type').count()['name']
+    fig = go.Figure()
+    return fig.add_trace(go.Bar(x=data.index, y=data.values.flatten()))
+
+
+def getTotalEmission(df):
+    df['Total'] = df.sum(axis=1)
+    fig = go.Figure()
+    return fig.add_trace(go.Bar(x=df.Country, y=df.values.flatten()))
+
+
+def getEmissionByCountry(df, con):
+    years = list(map(str, range(1970, 2021)))
+    data = df[df['Country'] == con][years].T
+    fig = go.Figure()
+    return fig.add_trace(go.Bar(x=data.index, y=df.values.flatten()))
+
+
+def getEmissionByYear(df, year):
+    data = df.set_index('Country')[year]
+    fig = go.Figure()
+    return fig.add_trace(go.Bar(x=data.index, y=df.values.flatten()))
+
+
+def getTopEmissionByYear(df, year):
+    data = df.set_index('Country')[year].sort_values(ascending=False).head(10)
+    fig = go.Figure()
+    return fig.add_trace(go.Bar(x=data.index, y=data.values.flatten()))
+
+
+def getBottomEmissionByYear(df, year):
+    data = df.set_index('Country')[year].sort_values().head(10)
+    fig = go.Figure()
+    return fig.add_trace(go.Bar(x=data.index, y=data.values.flatten()))
