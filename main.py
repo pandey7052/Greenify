@@ -178,7 +178,7 @@ def sourceTypeAnalysis():
     st.plotly_chart(getResourceByType(
         df, 'Urban Utility'), use_container_width=True)
 
-    rpt = st.checkbox('Generate Report')
+    rpt = st.checkbox('Generate Report',key="id1")
     if rpt:
         ViewForm()
 
@@ -187,20 +187,33 @@ def sourceTypeAnalysis():
     st.plotly_chart(getResourceByType(
         df, 'Solar Thermal'), use_container_width=True)
 
+    rpt = st.checkbox('Generate Report',key="id2")
+    if rpt:
+        ViewForm()
+
     st.markdown('#')
     st.subheader('Onshore Wind')
     st.plotly_chart(getResourceByType(
         df, 'Onshore Wind'), use_container_width=True)
+    rpt = st.checkbox('Generate Report',key="id3")
+    if rpt:
+        ViewForm()
 
     st.markdown('#')
     st.subheader('Offshore Wind')
     st.plotly_chart(getResourceByType(
         df, 'Offshore Wind'), use_container_width=True)
+    rpt = st.checkbox('Generate Report',key="id4")
+    if rpt:
+        ViewForm()
 
     st.markdown('#')
     st.subheader('Bio-Solid')
     st.plotly_chart(getResourceByType(
         df, 'Bio-Solid'), use_container_width=True)
+    rpt = st.checkbox('Generate Report',key="id5")
+    if rpt:
+        ViewForm()
 
 
 def locationAnalysis():
