@@ -49,13 +49,13 @@ def getEmissionByCountry(df, con):
     years = list(map(str, range(1970, 2021)))
     data = df[df['Country'] == con][years].T
     fig = go.Figure()
-    return fig.add_trace(go.Bar(x=data.index, y=df.values.flatten()))
+    return fig.add_trace(go.Bar(x=data.index, y=data.values.flatten()))
 
 
 def getEmissionByYear(df, year):
     data = df.set_index('Country')[year]
     fig = go.Figure()
-    return fig.add_trace(go.Bar(x=data.index, y=df.values.flatten()))
+    return fig.add_trace(go.Bar(x=data.index, y=data.values.flatten()))
 
 
 def getTopEmissionByYear(df, year):
