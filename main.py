@@ -2,9 +2,13 @@ import streamlit as st
 import pandas as pd
 # import json
 # import geopandas as gpd
-
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
 from visualizer import *
-
+from database import Report
+engine = create_engine('sqlite:///db.sqlite3')
+Session = sessionmaker(bind=engine)
+sess = Session()
 sidebar = st.sidebar
 st.title('GREENIFY')
 st.image('greenify.jpg.png')
@@ -85,6 +89,19 @@ def generateReport():
     current_report['save_report'] = sidebar.button("Save Report")
 
 
+def ViewForm():
+
+    title = st.text_input("Report Title")
+    desc = st.text_area('Report Description')
+    btn = st.button('Submit')
+
+    if btn:
+        report1 = Report(title=title, desc=desc, data="")
+        sess.add(report1)
+        sess.commit()
+        st.success('Report Saved')
+
+
 def save_report_form(fig):
     generateReport()
     if current_report['save_report']:
@@ -134,6 +151,22 @@ def viewDataset():
             cols[3].markdown(f"## {t}")
 
 
+def ViewReport():
+    reports = sess.query(Report).all()
+    titleslist = [report.title for report in reports]
+    selReport = st.selectbox(options=titleslist, label="Select Report")
+
+    reportToView = sess.query(Report).filter_by(title=selReport).first()
+    # st.header(reportToView.title)
+    # st.text(report)
+
+    markdown = f"""
+        ## {reportToView.title}
+        ### {reportToView.desc}
+    """
+    st.markdown(markdown)
+
+
 def sourceTypeAnalysis():
     st.markdown('''
         ## Energy Source Type Analysis
@@ -144,6 +177,10 @@ def sourceTypeAnalysis():
     st.subheader('Solar Photovoltic')
     st.plotly_chart(getResourceByType(
         df, 'Urban Utility'), use_container_width=True)
+
+    rpt = st.checkbox('Generate Report')
+    if rpt:
+        ViewForm()
 
     st.markdown('#')
     st.subheader('Solar Thermal')
@@ -261,7 +298,7 @@ def categoryAnalysis():
 
 sidebar.header('Choose Your Option')
 options = ['Project Overview', 'Dataset Details',
-           'Location and Category Analysis', 'Type Analysis', 'Country Wise Analysis', 'Carbon Emission Analysis']
+           'Location and Category Analysis', 'Type Analysis', 'Country Wise Analysis', 'Carbon Emission Analysis', 'View Report']
 choice = sidebar.selectbox(options=options, label="Choose Action")
 
 if choice == options[0]:
@@ -276,3 +313,5 @@ elif choice == options[4]:
     categoryAnalysis()
 elif choice == options[5]:
     carbonAnalysis()
+elif choice == options[6]:
+    ViewReport()
