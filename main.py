@@ -308,6 +308,8 @@ def categoryAnalysis():
     st.subheader('No. of PowerPlants by Type')
     st.plotly_chart(getCountryType(df2), use_container_width=True)
 
+def energyCalculator():
+    pass
 
 sidebar.header('Choose Your Option')
 options = ['Project Overview', 'Dataset Details',
